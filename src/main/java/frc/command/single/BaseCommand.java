@@ -1,4 +1,4 @@
-package frc.single;
+package frc.command.single;
 
 import java.util.logging.Logger;
 

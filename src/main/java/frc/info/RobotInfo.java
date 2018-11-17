@@ -54,7 +54,7 @@ public class RobotInfo {
 		put(LEFT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(12)), talon(new WPI_TalonSRX(12)));
 		put(RIGHT_MOTOR_MASTER, talon(new WPI_TalonSRX(4)));
 		put(RIGHT_MOTOR_SLAVE1, victor(new WPI_VictorSPX(2)), talon(new WPI_TalonSRX(20)));
-		put(RIGHT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(3)), talon(new WPI_TalonSRX(3)))
+		put(RIGHT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(3)), talon(new WPI_TalonSRX(3)));
 		put(LEFT_JOYSTICK, new Joystick(0));
 		put(RIGHT_JOYSTICK, new Joystick(1));
 		put(GAMEPAD, new Joystick(2));

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2175.subsystem;
+package frc.subsystem;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;

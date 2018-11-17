@@ -1,9 +1,6 @@
-package org.usfirst.frc.team2175.subsystem;
+package frc.subsystem;
 
-import java.util.logging.Logger;
-
-import org.usfirst.frc.team2175.ServiceLocator;
-import org.usfirst.frc.team2175.log.RobotLogger;
+import frc.ServiceLocator;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;

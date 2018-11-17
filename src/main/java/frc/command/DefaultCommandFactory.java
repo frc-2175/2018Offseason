@@ -1,8 +1,8 @@
-package org.usfirst.frc.team2175.command;
+package frc.command;
 
-import org.usfirst.frc.team2175.ServiceLocator;
-import org.usfirst.frc.team2175.command.single.BlendedDriveDefaultCommand;
-import org.usfirst.frc.team2175.subsystem.DrivetrainSubsystem;
+import frc.ServiceLocator;
+import frc.command.single.BlendedDriveDefaultCommand;
+import frc.subsystem.DrivetrainSubsystem;
 
 public class DefaultCommandFactory {
 	private final DrivetrainSubsystem drivetrainSubsystem;

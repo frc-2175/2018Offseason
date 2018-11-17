@@ -2,20 +2,16 @@ package frc.subsystem;
 
 import frc.MotorWrapper;
 import frc.ServiceLocator;
-import frc.SolenoidWrapper;
-import frc.UltrasonicWrapper;
 import frc.VirtualSpeedController;
 import frc.info.RobotInfo;
 import frc.info.SmartDashboardInfo;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.drive.RobotDriveBase;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DrivetrainSubsystem extends BaseSubsystem {
 	private final RobotInfo robotInfo;
@@ -26,14 +22,12 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	private final MotorWrapper rightMaster;
 	private final MotorWrapper rightSlaveOne;
 	private final MotorWrapper rightSlaveTwo;
-	private final SolenoidWrapper driveShifters;
 	private final DifferentialDrive robotDrive;
 	private static VirtualSpeedController leftVirtualSpeedController = new VirtualSpeedController();
 	private static VirtualSpeedController rightVirtualSpeedController = new VirtualSpeedController();
 	private static DifferentialDrive virtualRobotDrive = new DifferentialDrive(leftVirtualSpeedController,
 		rightVirtualSpeedController);
 
-	// TODO: We should grab a few more of these before competition.
 	public static final double WIDTH_OF_BOT = 26.125;
 	public static final double LENGTH_OF_BOT_WITH_BUMPERS = 39.25;
 
@@ -51,7 +45,6 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		rightMaster = robotInfo.get(RobotInfo.RIGHT_MOTOR_MASTER);
 		rightSlaveOne = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE1);
 		rightSlaveTwo = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE2);
-		driveShifters = robotInfo.get(RobotInfo.DRIVE_SHIFTERS);
 
 		leftSlaveOne.follow(leftMaster);
 		leftSlaveTwo.follow(leftMaster);
@@ -85,7 +78,6 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 
 	@Override
 	public void periodic() {
-		SmartDashboard.putNumber("LeftUltrasonic", leftUltra.getDistance());
 	}
 
 	/**
@@ -204,9 +196,6 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		resetGyro();
 	}
 
-	public void shift(boolean isHigh) {
-		driveShifters.set(isHigh);
-	}
 
 	public void arcadeDrive(double moveValue, double turnValue) {
 		robotDrive.arcadeDrive(-moveValue, -turnValue);

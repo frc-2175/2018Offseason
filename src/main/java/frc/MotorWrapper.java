@@ -1,4 +1,4 @@
-package frc.team2175;
+package frc;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.IMotorController;

@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 
 import frc.ServiceLocator;
 import frc.command.DefaultCommandFactory;
-import frc.command.autonomous.AutonSelector;
 import frc.control.DryverStation;
 import frc.control.JoystickEventMapper;
 import frc.factory.InfoFactory;
@@ -75,8 +74,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		drivetrainSubsystem.resetAllSensors();
-		m_autoSelected = autonSelector.getCommand();
-		m_autoSelected.start();
 	}
 
 	@Override

@@ -1,9 +1,7 @@
-package frc.team2175;
+package frc;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
-
-import org.usfirst.frc.team2175.log.RobotLogger;
 
 public class ServiceLocator {
 	private static final Logger log = RobotLogger.getLogger(ServiceLocator.class);

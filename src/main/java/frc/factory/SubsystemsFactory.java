@@ -1,6 +1,7 @@
 package frc.factory;
 
-import frc.DrivetrainSubsystem;
+import frc.factory.SubsystemsFactory;
+import frc.subsystem.DrivetrainSubsystem;
 
 public class SubsystemsFactory {
 	public static void makeAllSubsystems() {

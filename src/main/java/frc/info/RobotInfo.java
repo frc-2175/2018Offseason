@@ -2,7 +2,6 @@ package frc.info;
 
 import java.util.HashMap;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 import frc.MotorWrapper;
 import frc.ServiceLocator;
@@ -17,8 +16,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class RobotInfo {
-	private Logger log = RobotLogger.getLogger(this);
-
 	public static interface ValueContainer {
 		public Object get();
 	}
@@ -36,15 +33,11 @@ public class RobotInfo {
 	private HashMap<String, Object> info;
 	private final boolean isComp;
 
-	private final RobotLogger robotLogger;
-
 	public RobotInfo() {
-		log.info(getClass().getName() + "was constructed");
 		ServiceLocator.register(this);
 		info = new HashMap<>();
 		Properties botProperties = PropertiesLoader.loadProperties("/home/lvuser/bot.properties");
 		isComp = Boolean.parseBoolean((String) botProperties.get("isComp"));
-		robotLogger = ServiceLocator.get(RobotLogger.class);
 		populate();
 	}
 

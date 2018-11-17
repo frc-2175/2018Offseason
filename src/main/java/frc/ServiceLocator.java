@@ -1,11 +1,8 @@
 package frc;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 public class ServiceLocator {
-	private static final Logger log = RobotLogger.getLogger(ServiceLocator.class);
-
 	private static final HashMap<Class<?>, Object> MAP = new HashMap<>();
 
 	public static void clear() {
@@ -13,8 +10,6 @@ public class ServiceLocator {
 	}
 
 	public static void register(final Object instance) {
-		log.info("Registering '" + instance.getClass().getName() + "'");
-
 		final Object previousObject = MAP.put(instance.getClass(), instance);
 		if (previousObject != null) {
 			throw new IllegalStateException("MAP already contains value for key=" + instance);
@@ -22,8 +17,6 @@ public class ServiceLocator {
 	}
 
 	public static <T> void register(Class<T> clazz, final T instance) {
-		log.info("Registering '" + instance.getClass().getName() + "'");
-
 		final Object previousObject = MAP.put(clazz, instance);
 		if (previousObject != null) {
 			throw new IllegalStateException("MAP already contains value for key=" + instance);

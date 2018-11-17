@@ -16,8 +16,6 @@
 
 package frc.robot;
 
-import java.util.logging.Logger;
-
 import frc.ServiceLocator;
 import frc.command.DefaultCommandFactory;
 import frc.control.DryverStation;
@@ -78,7 +76,6 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousPeriodic() {
-		robotLogger.log();
 		Scheduler.getInstance().run();
 	}
 

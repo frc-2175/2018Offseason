@@ -56,8 +56,8 @@ public class Robot extends TimedRobot {
 	public void robotPeriodic() {
 		SmartDashboard.putNumber("LeftEncoder", drivetrainSubsystem.getLeftEncoderDistance());
 		SmartDashboard.putNumber("RightEncoder", drivetrainSubsystem.getRightEncoderDistance());
-		SmartDashboard.putNumber("gyroUnadjusted", drivetrainSubsystem.getGyroValueUnadjusted());
-		SmartDashboard.putNumber("gyroAdjusted", drivetrainSubsystem.getGyroValueAdjusted());
+		/* SmartDashboard.putNumber("gyroUnadjusted", drivetrainSubsystem.getGyroValueUnadjusted());
+		SmartDashboard.putNumber("gyroAdjusted", drivetrainSubsystem.getGyroValueAdjusted()); */
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import frc.ServiceLocator;
 import frc.VirtualSpeedController;
 import frc.info.RobotInfo;
 import frc.info.SmartDashboardInfo;
+import frc.SolenoidWrapper;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
@@ -22,6 +23,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	private final MotorWrapper rightMaster;
 	private final MotorWrapper rightSlaveOne;
 	private final MotorWrapper rightSlaveTwo;
+	private final SolenoidWrapper driveShifters;
 	private final DifferentialDrive robotDrive;
 	private static VirtualSpeedController leftVirtualSpeedController = new VirtualSpeedController();
 	private static VirtualSpeedController rightVirtualSpeedController = new VirtualSpeedController();
@@ -35,7 +37,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 
 	private boolean justTurned;
 
-	private AHRS navx;
+	// private AHRS navx;
 
 	public DrivetrainSubsystem() {
 		robotInfo = ServiceLocator.get(RobotInfo.class);
@@ -45,6 +47,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		rightMaster = robotInfo.get(RobotInfo.RIGHT_MOTOR_MASTER);
 		rightSlaveOne = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE1);
 		rightSlaveTwo = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE2);
+		driveShifters = robotInfo.get(RobotInfo.DRIVE_SHIFTERS);
 
 		leftSlaveOne.follow(leftMaster);
 		leftSlaveTwo.follow(leftMaster);
@@ -64,8 +67,8 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 
 		justTurned = false;
 
-		navx = new AHRS(SPI.Port.kMXP);
-		navx.reset();
+		/* navx = new AHRS(SPI.Port.kMXP);
+		navx.reset(); */
 
 		smartDashboardInfo = ServiceLocator.get(SmartDashboardInfo.class);
 
@@ -177,6 +180,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	/**
 	 * Positive values = clockwise
 	 */
+	/*
 	public double getGyroValueAdjusted() {
 		double latency = smartDashboardInfo.getNumber(SmartDashboardInfo.GYRO_LATENCY);
 		return navx.getAngle() + latency * navx.getRate() * navx.getActualUpdateRate();
@@ -185,9 +189,14 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	public double getGyroValueUnadjusted() {
 		return navx.getAngle();
 	}
+	*/
 
 	public void resetGyro() {
-		navx.reset();
+		// navx.reset();
+	}
+
+	public void shift(boolean isHigh) {
+		driveShifters.set(isHigh);
 	}
 
 	public void resetAllSensors() {
@@ -201,7 +210,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		robotDrive.arcadeDrive(-moveValue, -turnValue);
 	}
 
-	public void straightArcadeDrive(double moveValue) {
+	/* public void straightArcadeDrive(double moveValue) {
 		double turnCorrection = smartDashboardInfo.getNumber(SmartDashboardInfo.TURN_CORRECTION);
 		arcadeDrive(moveValue, -(getGyroValueUnadjusted() / turnCorrection));
 	}
@@ -209,7 +218,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	public void straightArcadeDrive(double moveValue, boolean useTurnCorrection) {
 		double turnCorrection = smartDashboardInfo.getNumber(SmartDashboardInfo.TURN_CORRECTION);
 		arcadeDrive(moveValue, useTurnCorrection ? -(getGyroValueUnadjusted() / turnCorrection) : 0);
-	}
+	} */
 
 	public void tankDrive(double leftSpeed, double rightSpeed) {
 		robotDrive.tankDrive(-leftSpeed, -rightSpeed);
@@ -227,6 +236,6 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		} else if (justTurned) {
 			usingCorrection = false;
 		}
-		straightArcadeDrive(moveValue, usingCorrection && useTurnCorrection);
+		// straightArcadeDrive(moveValue, usingCorrection && useTurnCorrection);
 	}
 }

@@ -4,7 +4,6 @@ import frc.ServiceLocator;
 import frc.info.RobotInfo;
 import frc.info.SmartDashboardInfo;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -12,9 +11,10 @@ public class DryverStation {
 	private Joystick leftJoystick;
 	private Joystick rightJoystick;
 	private Joystick gamepad;
+	private JoystickButton shiftButton;
 	private SmartDashboardInfo smartDashboardInfo;
 	private static final double JOYSTICK_DEADBAND = 0.15;
-	private static final double GAMEPAD_DEADBAND = 0.1;
+	// private static final double GAMEPAD_DEADBAND = 0.1;
 
 	public DryverStation() {
 		ServiceLocator.register(this);

@@ -23,7 +23,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 	private final MotorWrapper rightMaster;
 	private final MotorWrapper rightSlaveOne;
 	private final MotorWrapper rightSlaveTwo;
-	private final SolenoidWrapper driveShifters;
+	// private final SolenoidWrapper driveShifters;
 	private final DifferentialDrive robotDrive;
 	private static VirtualSpeedController leftVirtualSpeedController = new VirtualSpeedController();
 	private static VirtualSpeedController rightVirtualSpeedController = new VirtualSpeedController();
@@ -47,7 +47,7 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		rightMaster = robotInfo.get(RobotInfo.RIGHT_MOTOR_MASTER);
 		rightSlaveOne = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE1);
 		rightSlaveTwo = robotInfo.get(RobotInfo.RIGHT_MOTOR_SLAVE2);
-		driveShifters = robotInfo.get(RobotInfo.DRIVE_SHIFTERS);
+		// driveShifters = robotInfo.get(RobotInfo.DRIVE_SHIFTERS);
 
 		leftSlaveOne.follow(leftMaster);
 		leftSlaveTwo.follow(leftMaster);
@@ -195,9 +195,9 @@ public class DrivetrainSubsystem extends BaseSubsystem {
 		// navx.reset();
 	}
 
-	public void shift(boolean isHigh) {
+	/* public void shift(boolean isHigh) {
 		driveShifters.set(isHigh);
-	}
+	} */
 
 	public void resetAllSensors() {
 		leftMaster.setSelectedSensorPosition(0, 0, 0);

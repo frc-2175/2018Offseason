@@ -38,16 +38,16 @@ public class RobotInfo {
 	}
 
 	private void populate() {
-		put(LEFT_MOTOR_MASTER, talon(new WPI_TalonSRX(1)));
-		put(LEFT_MOTOR_SLAVE1, victor(new WPI_VictorSPX(11)));
-		put(LEFT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(12)));
-		put(RIGHT_MOTOR_MASTER, talon(new WPI_TalonSRX(4)));
-		put(RIGHT_MOTOR_SLAVE1, victor(new WPI_VictorSPX(2)));
-		put(RIGHT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(3)));
-		put(DRIVE_SHIFTERS, () -> new SolenoidWrapper(4));
+		put(LEFT_MOTOR_MASTER, talon(new WPI_TalonSRX(0)));
+		put(LEFT_MOTOR_SLAVE1, victor(new WPI_VictorSPX(100)));
+		put(LEFT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(101)));
+		put(RIGHT_MOTOR_MASTER, talon(new WPI_TalonSRX(1)));
+		put(RIGHT_MOTOR_SLAVE1, victor(new WPI_VictorSPX(102)));
+		put(RIGHT_MOTOR_SLAVE2, victor(new WPI_VictorSPX(103)));
+		put(DRIVE_SHIFTERS, () -> new SolenoidWrapper(104));
 		put(LEFT_JOYSTICK, new Joystick(0));
 		put(RIGHT_JOYSTICK, new Joystick(1));
-		put(GAMEPAD, new Joystick(2));
+		put(GAMEPAD, new Joystick(1000));
 	}
 
 	private void put(String key, ValueContainer value) {

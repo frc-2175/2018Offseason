@@ -34,7 +34,7 @@ public class DryverStation {
 	}
 
 	public double getTurnValue() {
-		double value = Math.asin(rightJoystick.getX()) * 0.8;
+		double value = Math.asin(-rightJoystick.getX()) * 0.8;
 		return deadband(value, JOYSTICK_DEADBAND);
 	}
 
@@ -50,7 +50,7 @@ public class DryverStation {
 		}
 	}
 
-	public JoystickButton getShiftButton() {
+	/* public JoystickButton getShiftButton() {
 		return shiftButton;
-	}
+	} */
 }
